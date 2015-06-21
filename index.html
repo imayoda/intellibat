@@ -47,14 +47,14 @@
 
 <p>First of all the right firmware has to be installed inside ESSP8266. They usually come with very old AT firmware and any other version is not suitable, or works very bad and with partial support for arduino code. Use a serial programmer (3,3V one).</p>
 
-<p>Second, program the sketch in Arduino; there are two versions, the "nano" one is for those atmel arduinos without a Hardware serial port. There are some libraries that you have to import inside your IDE to make it work, like AltSoftSerial, TextFinder and those related to DHT and ACS sensors. <em>I sugest you to do all on a breadboard, it's much simplier and it can be 99% tested before prototyping a bad not working product.</em></p>
+<p>Second, program the sketch in Arduino; there are two versions, the "nano" one is for those atmel arduinos <strong>without</strong> a Hardware serial port. There are some libraries that you have to import inside your IDE to make it work, like AltSoftSerial, TextFinder and those related to DHT and ACS sensors. <em>I sugest you to do all on a breadboard, it's much simplier and it can be 99% tested before prototyping a bad not working product.</em></p>
 
 <p>Third, I have used to achieve stepdown from my 60V battery an old usb switching 5V brick from a Sagem phone. Almost all this powersupplies can output 5V if connected to a DC relatively high voltage (some could not work under 50V volts, you have to find your ideal solution to power the board once it is inside your high voltage battery).</p>
 
 <p>Some extra infos:
 ESP8266 comes in many form factors and pinouts. Usually to power it up you only need CH_PD pulled up with 10k resistor ad a stable enough 3,3V stabilized voltage.. you take it from arduino 3,3V board regulator if you have a good ams1117 chip (original one) on your board. If that chip is counterfeit probably won't be good to power the ESP8266, that needs around 200mA to work; and don't forget good caps for good stabilization.
-Don't mess up with ESP voltages, <strong>the soc is only 5V tollerant on the RX serial pin</strong>, it will fry on any other pin  for more than 3,6V given.
-Pay attention to sketch pinouts; eg. Arduino serial is hard coded and it's very difficult to understand where the fault is if mistakes are made. 
+Don't mess up with ESP voltages, <strong>the soc is only 5V tollerant on the RX serial pin</strong>, it <strong>will fry</strong> on any other pin  for more than 3,6V given.
+Pay attention to sketch pinouts; eg. Arduino AltSoftserial is hard coded and it's very difficult to understand where the fault is if mistakes are made.
 The project AS IS, was made for 30A sensor and maximum 100V readings.. the zener should protect arduino input from spikes on the voltage reading pin.</p>
 
 <p><strong>USE AT YOUR OWN RISK, I'M NOT LIABLE FOR ANY SITUATION THAT COULD DERIVE FROM THE USE OF THIS OPEN PROJECT.</strong>
