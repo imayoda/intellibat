@@ -45,7 +45,8 @@
 <h2>
 <a id="instructions-wip" class="anchor" href="#instructions-wip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions: (wip)</h2>
 
-<p>First of all the right firmware has to be installed inside ESSP8266. They usually come with very old AT firmware and any other version is not suitable, or works very bad and with partial support for arduino code. Use a serial programmer (3,3V one).</p>
+<p>First of all the right firmware has to be installed inside ESSP8266. They usually come with very old AT firmware and any other version is not suitable, or works very bad and with partial support for arduino code. Use a serial programmer (3,3V one). When you're there you can even program the ESP work mode (set to 3, STA+AP) and AP credentials + STA credentials (maybe your tether wireless password, so that it will connect to it from the start). This need serial monitor like Realterm to work.
+Otherwise this initial programmation is possible editing the sketch (Initial command cluster); remember that Wifi settings are stored permanently in rom, so you don't have to flash those parameters anytime you boot your system. It can even destroy your ESP after some (long) time, as NAND flash has limited writes life.</p>
 
 <p>Second, program the sketch in Arduino; there are two versions, the "nano" one is for those atmel arduinos <strong>without</strong> a Hardware serial port. There are some libraries that you have to import inside your IDE to make it work, like AltSoftSerial, TextFinder and those related to DHT and ACS sensors. <em>I sugest you to do all on a breadboard, it's much simplier and it can be 99% tested before prototyping a bad not working product.</em></p>
 
